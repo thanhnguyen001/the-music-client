@@ -1,0 +1,197 @@
+.my-page-wrap {
+    padding: 0 4vw;
+    caret-color: rgba(0, 0, 0, 0);
+    margin-top: 90px;
+}
+.my-info {
+    text-align: center;
+    position: relative;
+}
+.my-info > i {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    height: 3.2rem;
+    width: 3.2rem;
+    padding: 6px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    color: var(--text-color);
+}
+.log-out {
+    position: absolute;
+    top: 34px;
+    right: 0;
+    width: 130px;
+    display: none;
+    background-color: var(--head-bg-mobile);
+    padding: 2px 0;
+    border-radius: 10px;
+    box-shadow: -1px 1px 2px var(--option-song-mobile);
+}
+.log-out.active {
+    display: block;
+}
+.log-out-wrap {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-evenly; */
+    border-radius: 10px;
+    color: var(--text-color);
+    cursor: pointer;
+    padding-left: 8px;
+    font-size: 1.4rem;
+    caret-color: rgba(0, 0, 0, 0);
+}
+.log-out-wrap:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+.log-out-wrap i {
+    margin-right: 12px;
+}
+
+.my-avatar {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+}
+.update-avatar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+}
+.update-avatar-input {
+    color: transparent;
+}
+.update-avatar-input::-webkit-file-upload-button {
+    visibility: hidden;
+}
+.update-avatar-input::before {
+    content: "";
+    color: transparent;
+    display: inline-block;
+    background: transparent;
+    width: 100px;
+    height: 50px;
+    cursor: pointer;
+}
+.camera {
+    position: absolute;
+    z-index: 1;
+    bottom: -50%;
+    left: 0;
+    width: 100px;
+    height: 50px;
+    font-size: 5rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: all 0.3s linear;
+}
+.my-avatar:hover .camera {
+    bottom: 0;
+}
+.my-name {
+    margin-top: 12px;
+    font-size: 3rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+.my-music-title {
+    font-size: 2.4rem;
+    color: var(--text-color);
+}
+.my-page-create {
+    position: relative;
+    cursor: pointer;
+}
+.my-page-create .carousel-item-wrap {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 8px;
+    position: relative;
+    height: 100%;
+}
+.my-page-create h3 {
+    visibility: hidden;
+}
+.my-page-create img {
+    visibility: hidden;
+}
+.my-page-create .title {
+    font-size: 1.6rem;
+    color: whitesmoke;
+}
+.my-page-create i {
+    font-size: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #087825;
+}
+.no-song {
+    height: 220px;
+    margin-top: 12px;
+    padding: 0 4vw;
+}
+.no-song-wrap {
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    color: rgba(255, 255, 255, 0.4);
+}
+.no-song-wrap i {
+    font-size: 8rem;
+}
+.no-song-wrap span {
+    font-size: 1.6rem;
+}
+.my-playlist-page {
+    margin-top: 90px;
+}
+
+.my-playlist-page h3 {
+    color: white;
+    font-size: 2rem;
+    padding: 0 4vw;
+}
+.my-playlist-page .playlist-content,
+.my-playlist-page .main-playlist,
+.my-playlist-page .playlist-wrap-level-2 {
+    margin-top: 0;
+}
+.my-playlist-page .playlist-content-wrap-level-1 {
+    padding: 0;
+}
+.my-songs .playlist-content,
+.my-songs .main-playlist,
+.my-songs .playlist-wrap-level-2 {
+    margin-top: 0;
+}
+.my-songs .playlist-content-wrap-level-1,
+.my-songs .playlist.wrap-level-1 {
+    padding: 0;
+}
+
+.my-music .artist-section-songs {
+    padding: 0;
+}
+
+@media (max-width: 600px) {
+    .my-playlist-page {
+        margin-top: 58px;
+    }
+}

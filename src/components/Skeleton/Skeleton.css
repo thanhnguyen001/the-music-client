@@ -1,0 +1,139 @@
+.skeleton {
+    width: 100%;
+    height: 100%;
+}
+.skeleton-wrap {
+    background-color: rgb(63, 126, 64, 0.8);
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+}
+.sk-home .sk-home-slide {
+    display: flex;
+    height: 175px;
+}
+.sk-home .sk-home-slide div {
+    width: 33.33333%;
+    margin: 0 8px;
+}
+.sk-title-playlist {
+    height: 24px;
+    margin-top: 60px;
+    width: 50%;
+    margin-left: 8px;
+}
+.sk-playlist {
+    height: 200px;
+    display: flex;
+    margin-top: 16px;
+}
+.sk-playlist div {
+    width: 25%;
+    margin: 0 8px;
+}
+
+/* Playlist Page */
+
+.sk-songs {
+    display: flex;
+}
+.sk-songs-thumbnail {
+    height: 300px;
+    width: 300px;
+}
+.sk-songs-item {
+    flex: 1;
+    margin-left: 24px;
+}
+.sk-song {
+    display: flex;
+    width: 100%;
+    margin-bottom: 12px;
+}
+.sk-song-thumbnail {
+    height: 50px;
+    width: 50px;
+}
+.sk-song-info {
+    width: 40%;
+    margin-left: 8px;
+    padding-top: 4px;
+}
+.sk-song-title, .sk-song-artist {
+    height: 12px;
+    margin-bottom: 4px;
+}
+.sk-song-artist {
+    width: 72%;
+}
+.sk-song-duration {
+    width: 30%;
+    height: 16px;
+    margin-left: 12px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.sk-song-duration div {
+    width: 70px;
+}
+
+/* Artist Page */
+.sk-artist {
+    margin-top: 126px;
+    padding: 0 4vw;
+}
+.sk-biography {
+    display: flex;
+}
+.sk-biography-detail {
+    width: 70%;
+}
+.sk-artist-thumbnail {
+    border-radius: 50%;
+    height: 230px;
+    width: 230px;
+}
+.sk-text-name  {
+    height: 40px;
+    margin-bottom: 8px;
+    width: 30%;
+}
+.sk-text {
+    height: 12px;
+    margin-bottom: 8px;
+    width: 70%;
+}
+.sk-artist .sk-song {
+    margin-top: 45px;
+}
+
+/* Shimmer */
+.shimmer {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 80%;
+    transform: skewX(-30deg);
+    background-color: rgba(255, 225, 225, 0.1);
+    left: -100%;
+    animation: shimmer 1s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    from {
+        left: -100%;
+        opacity: 0;
+    }
+    to {
+        left: 130%;
+        opacity: 1;
+    }
+}
+
+.skeleton-thumbnail {
+    width: 300px;
+    height: 300px;
+}

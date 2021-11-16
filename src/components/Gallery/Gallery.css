@@ -1,0 +1,210 @@
+.galleries {
+    caret-color: rgba(0, 0, 0, 0);
+}
+.galleries-wrap {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    margin: 0 -15px 20px;
+}
+
+.gallery-item {
+    position: absolute;
+    height: 100%;
+    padding: 15px;
+    width: 33.33333%;
+    opacity: 0;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, z-index 0s linear 0.25s;
+}
+.gallery-item-img {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    height: 100%;
+}
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    transition: all 0.5s linear;
+}
+
+.gallery-first {
+    z-index: 1;
+    opacity: 1;
+    transform: translateX(-100%);
+}
+
+.gallery-second {
+    z-index: 10;
+    opacity: 1;
+    transform: translateX(0%);
+}
+
+.gallery-third {
+    z-index: 1;
+    opacity: 1;
+    transform: translateX(100%);
+}
+
+.gallery-next {
+    transform: translateX(-20%);
+}
+
+.gallery-previous {
+    transform: translateX(-20%);
+}
+
+/* .gallery-waiting {
+
+} */
+.gallery-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.4rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: wheat;
+    z-index: 100;
+}
+.btn-next {
+    right: 0;
+}
+.btn-prev {
+    left: 0;
+}
+
+.is-add-song {
+    position: fixed;
+    inset: 0px;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1500;
+    display: none;
+}
+.is-add-song-wrap {
+    position: absolute;
+    height: 460px;
+    width: 330px;
+    background-color: var(--primary-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    text-align: center;
+    color: var(--text-color);
+    box-shadow: -1px 1px 8px rgba(0, 0, 0, 0.5), 1px 1px 8px rgba(0, 0, 0, 0.5);
+}
+.is-add-song-notice {
+    font-size: 1.5rem;
+}
+
+.is-add-song-thumbnail {
+    height: 180px;
+    width: 180px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 12px auto 8px auto;
+    transition: all 0.5s linear;
+    cursor: pointer;
+}
+.is-add-song-thumbnail img {
+    transition: all 0.5s linear;
+}
+
+.is-add-song-thumbnail:hover img {
+    transform: scale(1.1);
+}
+
+.is-add-song-title {
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+.is-add-song-artists {
+    font-size: 1.3rem;
+    opacity: 0.7;
+    margin-bottom: 28px;
+}
+
+.is-add-song-play,
+.is-add-song-add {
+    width: 100%;
+    height: 38px;
+    border-radius: 38px;
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(14, 64, 156);
+    margin: 8px 0;
+    font-weight: 200;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.is-add-song-play i {
+    margin-right: 12px;
+}
+.is-add-song-add {
+    background-color: rgb(61, 72, 92);
+}
+.is-add-song-play:hover, .is-add-song-add:hover {
+    opacity: 0.85;
+}
+.is-add-song-ignore {
+    margin-top: 24px;
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 1024px) {
+    .galleries-wrap {
+        height: calc(20vw - 66px);
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .galleries-wrap {
+        height: calc(30vw - 48px);
+        min-height: 180px;
+    }
+    .gallery-item {
+        width: 50%;
+    }
+    .gallery-third {
+        opacity: 0;
+    }
+    .gallery-first {
+        transform: translateX(-50%);
+    }
+    .gallery-second {
+        transform: translateX(50%);
+    }
+}
+@media screen and (max-width: 600px) {
+    .galleries-wrap {
+        height: calc(50vw - 48px);
+        min-height: 180px;
+    }
+    .gallery-item {
+        width: 100%;
+    }
+    .gallery-first {
+        transform: translateX(50%);
+        opacity: 0;
+    }
+    .gallery-second {
+        transform: translateX(0%);
+    }
+}

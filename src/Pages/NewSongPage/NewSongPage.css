@@ -1,0 +1,100 @@
+.rank {
+    width: 10%;
+    display: flex;
+    align-items: center;
+}
+.newrelease-wrap {
+    margin-top: 90px;
+}
+.newrelease .playlist-content-wrap-level-1 {
+    padding: 0;
+}
+.newrelease .song-item-right {
+    width: 15%;
+}
+.newrelease-title {
+    font-size: 4rem;
+    padding: 0 4vw;
+    color: whitesmoke;
+}
+.newrelease .main-playlist {
+    margin-top: 0;
+}
+.newrelease .playlist-content {
+    margin-top: 0;
+}
+.newrelease .song-item-music-note {
+    display: none;
+}
+.rank-number {
+    flex: 1;
+    color: transparent;
+    font-size: 4rem;
+    -webkit-text-stroke: white;
+    -webkit-text-stroke-width: 2px;
+}
+.rank-number.top-1 {
+    -webkit-text-stroke: rgb(231, 42, 42);
+    -webkit-text-stroke-width: 2px;
+}
+.rank-number.top-2 {
+    -webkit-text-stroke: orange;
+    -webkit-text-stroke-width: 2px;
+}
+.rank-number.top-3 {
+    -webkit-text-stroke: purple;
+    -webkit-text-stroke-width: 2px;
+}
+.rank-status {
+    width: 40%;
+    font-size: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 8px;
+}
+.rank-stt {
+    display: none;
+    font-size: 2.6rem;
+    color: white;
+    -webkit-text-stroke: rgb(255, 255, 255);
+    -webkit-text-stroke-width: 1px !important;
+    line-height: 2.6rem;
+}
+#song-0 .rank-stt {
+    -webkit-text-stroke: rgb(236, 43, 43);
+}
+#song-1 .rank-stt {
+    -webkit-text-stroke: rgb(228, 132, 68);
+}
+#song-2 .rank-stt {
+    -webkit-text-stroke: rgb(175, 55, 231);
+}
+.fas.fa-caret-up {
+    font-size: 2rem;
+    color: #69e169;
+    line-height: 2rem;
+}
+.fas.fa-caret-down {
+    font-size: 2rem;
+    color: red;
+    line-height: 2rem;
+}
+.rank-up-down {
+    color: whitesmoke;
+}
+
+@media (max-width: 1023px) {
+    .rank-up-down {
+        display: none;
+    }
+}
+@media (max-width: 724px) {
+    .rank-stt {
+        display: block;
+    }
+    .rank-number {
+        display: none;
+    }
+}

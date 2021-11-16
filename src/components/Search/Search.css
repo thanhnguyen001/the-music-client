@@ -1,0 +1,71 @@
+.result-search {
+    position: absolute;
+    top: 98%;
+    left: 0;
+    width: 100%;
+    background-color: var(--primary-bg);
+    min-height: 100px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    display: none;
+    font-size: 1.6rem;
+    padding: 0 8px;
+}
+
+.input-search.active .result-search {
+    display: block;
+}
+.result-suggest-text {
+    margin-top: 16px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid rgba(221, 216, 216, 0.3);
+}
+.suggest-item  {
+    padding: 12px 8px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.suggest-item a {
+    display: flex;
+    align-items: center;
+    color: var(--text-color);
+}
+
+.suggest-item:hover, .suggest-item.active {
+    background-color: var(--alpha-bg);
+}
+.suggest-text {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.suggest-item a i {
+    margin-right: 8px;
+    opacity: 0.5;
+}
+.result-suggest-link i {
+    opacity: 1;
+}
+.ong-item-thumb.is-artist {
+    border-radius: 50%;
+    overflow: hidden;
+}
+.input-search .fa-times {
+    transform: translateX(-8px);
+    display: none;
+}
+.input-search.active .fa-times {
+    display: block;
+}
+.history-search-title {
+    display: flex;
+    color: var(--text-color);
+    justify-content: space-between;
+    padding: 0 12px;
+    margin-left: 6px;
+    margin-bottom: 6px;
+}
+.delete-history {
+    font-size: 1.4rem;
+    opacity: 0.7;
+}

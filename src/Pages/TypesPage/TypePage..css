@@ -1,0 +1,44 @@
+.type {
+    padding: 0 4vw; 
+}
+.section-banner {
+    height: 310px;
+    overflow: hidden;
+}
+.banner-wrap {
+    height: 100%;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.banner-item {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 2s linear;
+}
+.banner-item  img {
+    transition: all 2s linear;
+}
+.banner-item.prev {
+    top: -100%;
+}
+.banner-item.active {
+    inset: 0px;
+    opacity: 1;
+}
+.banner-item.next {
+    top: 100%;
+}
+.banner-item.wait {
+    top: 100%;
+}
+.section-genre {
+    height: 100%;
+}
+@media (max-width: 600px) {
+    .section-banner {
+        height: 178px;
+    }
+}

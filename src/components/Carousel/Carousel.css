@@ -1,0 +1,229 @@
+.zm-section {
+    margin-bottom: 12px;
+    margin-top: 24px;
+    caret-color: rgba(0, 0, 0, 0);
+}
+.zm-section-wrap {
+    overflow: hidden;
+    position: relative;
+}
+.zm-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.zm-btn button {
+    background: none;
+    outline: none;
+    border: none;
+    font-size: 1.8rem;
+    margin: 0 8px;
+    cursor: pointer;
+    color: var(--text-color);
+}
+button.disabled {
+    cursor: default;
+    opacity: 0.3;
+}
+.zm-carousel {
+    display: flex;
+    margin: 0 -12px;
+}
+.zm-section-title {
+    font-size: 2rem;
+    color: var(--text-color);
+    margin-bottom: 12px;
+}
+
+.zm-carousel-item {
+    width: 20%;
+    padding: 0 12px;
+    flex-shrink: 0;
+}
+.zm-carousel-item.video {
+    width: 33.33333%;
+}
+
+.card-thumbnail {
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+.artist .card-thumbnail {
+    border-radius: 50%;
+}
+.card-thumbnail:hover .card-thumbnail-hover {
+    display: flex;
+}
+.card-thumbnail:hover img {
+    transform: scale(1.1);
+}
+.card-thumbnail-hover {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    color: wheat;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 0 20px;
+    display: none;
+    transition: all 0.5s ease-in-out;
+}
+.card-thumbnail-hover i {
+    transition: all 0.5s linear;
+}
+.card-thumbnail-hover i:nth-child(2) {
+    font-size: 2.5rem;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    border: 1px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: all 0.5s linear !important;
+}
+.card-artist {
+    text-align: center;
+    margin-top: 12px;
+    color: var(--text-color);
+}
+.card-artist-name {
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+.card-artist-follow {
+    font-size: 1.3rem;
+    opacity: 0.8;
+}
+.card-duration {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    font-size: 1.2rem;
+    padding: 4px;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+.zm-card a {
+    font-size: 1.4rem;
+    color: var(--text-color);
+}
+.card-thumbnail-hover i {
+    color: whitesmoke;
+}
+.card-info {
+    margin-top: 8px;
+}
+.card-title .title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+    word-break: break-word;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.card-description {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+    word-break: break-word;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    opacity: 0.7;
+    margin-top: 4px;
+    font-weight: 300;
+    font-size: 1.4rem;
+}
+.zm-section-title i {
+    color: var(--text-color);
+    transform: translateY(1px);
+    opacity: 0;
+    font-size: 2rem;
+}
+
+.zm-carousel-item.artist .card-artist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.zm-carousel-item.artist .artist-btn {
+    padding: 8px 10px;
+    font-size: 1.2rem;
+    width: 60%;
+}
+
+/* Responsive */
+@media (min-width: 1024px) and (max-width: 1285px) {
+    .zm-carousel-item.artist .artist-btn {
+        width: 84%;
+    }
+}
+@media (max-width: 1024px) {
+    .zm-carousel-item {
+        width: 25%;
+    }
+}
+@media (max-width: 699px) {
+    .zm-carousel {
+        margin: 0 -8px;
+    }
+    .zm-carousel-wrap {
+        overflow: scroll hidden;
+    }
+    .zm-carousel-wrap::-webkit-scrollbar {
+        display: none;
+    }
+    .zm-carousel-item {
+        padding: 0 8px;
+        width: 40%;
+    }
+    .zm-carousel-item.video {
+        width: 80%;
+    }
+}
+
+@media (max-width: 560px) {
+    .artist-play i {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .zm-section-title i {
+        opacity: 1;
+    }
+    .zm-btn {
+        display: none;
+    }
+    .zm-carousel-wrap {
+        overflow-x: scroll;
+    }
+    .zm-carousel-wrap::-webkit-scrollbar {
+        display: none;
+    }
+}
+@media (max-width: 400px) {
+    .artist-play i {
+        display: none;
+    }
+    .zm-carousel-item.artist .artist-btn {
+        width: 88%;
+    }
+}
+

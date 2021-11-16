@@ -1,0 +1,153 @@
+/* html {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+ */
+
+.hide {
+  display: none !important;
+}
+img {
+  width: 100%;
+  height: 100%;
+}
+:root {
+  --blue-color: #099ed2;
+  --lyrics-height: calc(100% - 90px);
+}
+[data-theme="normal"] {
+  --top100-img: url('./static/img/top100.jpg');
+  --top100-shadow: 2px 2px 50px #00ff39;
+  --textColor: #fff;
+  --text-color: #fff;
+  --activeText: #fff;
+  --searchText: #699714;
+  --search-bg: #03641b;
+  --alpha-bg: rgba(255, 255, 255, 0.1);
+  --bg-img: url('./static/img/imgonline-com-ua-resize-n78dLyD8OND.jpg');
+  --primary-bg: #188533;
+  --sidebar-bg: #29a047;
+  --sidebar-blur: rgba(41, 160, 71, 0.3);
+  --layout-bg: transparent;
+  --artist-bg: #00ff61cc;
+  --head-bg-mobile: rgb(6, 143, 33);
+  --head-bg-mobile-shadow: rgb(45, 231, 45) 0px 1px 24px;
+  --heart-fill-color: red;
+  --hr-color: green;
+  --icon-color: #00ff61cc;
+  --vertical-thumb-color: rgba(154, 228, 154, 0.8);
+  --player-bg: url('./static/img/player-green.jpg');
+  --audio-color: rgb(237, 241, 235);
+  --audio-thumb: #fff;
+  --option-song-mobile: #000000b3;
+}
+
+[data-theme="iu"] {
+  --bg-img: url('./static/img/iu-bg.jpg');
+  --textColor: #000;
+  --text-color: #000;
+  --activeText: #3dea62cc;
+  --searchText: #fff;
+  --search-bg: #e7dfdd;
+  --alpha-bg: rgba(0, 0, 0, 0.1);
+  --bg-color: ;
+  --primary-bg: #fff;
+  --sidebar-bg: #0000000d;
+  --sidebar-mobile: #f2f2f2;
+  --layout-bg: transparent;
+  --artist-bg: none;
+  --player-bg: #d0ccc5;
+  --head-bg-mobile: rgb(225, 208, 211);
+  --head-bg-mobile-shadow: rgb(219, 93, 134) 0px 1px 24px;
+  --heart-fill-color: #409abc;
+  --icon-color: #045668cc;
+  --vertical-thumb-color: rgb(98, 123, 98, 0.8);
+  --hr-color: rgb(85, 85, 85);
+  --audio-color: rgb(39, 43, 37);
+  --audio-thumb: #fff;
+  --option-song-mobile: #000000b3;
+
+}
+
+[data-theme="ji-chang-wook"] {
+  --bg-img: url('./static/img/ji-chang-wook-bg.jpg');
+  --textColor: #000;
+  --text-color: #000;
+  --activeText: #3dea62cc;
+  --searchText: #fff;
+  --search-bg: #b2d8db;
+  --alpha-bg: rgba(0, 0, 0, 0.05);
+  --bg-color: ;
+  --primary-bg: #e1e8e8;
+  --sidebar-bg: #0000000d;
+  --sidebar-mobile: #cce0e0;
+  --layout-bg: transparent;
+  --artist-bg: none;
+  --player-bg: #b4d0d0;
+  --head-bg-mobile: rgb(83, 174, 189);
+  --head-bg-mobile-shadow: rgb(44, 255, 235) 0px 1px 24px;
+  --heart-fill-color: #239292;
+  --icon-color: #045668cc;
+  --vertical-thumb-color: rgb(98, 123, 98, 0.8);
+  --hr-color: rgb(85, 85, 85);
+  --audio-color: rgb(39, 43, 37);
+  --audio-thumb: #fff;
+  --option-song-mobile: #000000b3;
+  
+}
+
+[data-theme="dark"], [data-theme="eiffel"] {
+  --top100-img: none;
+  --top100-shadow: 2px 2px 50px #eeeeee;
+  --bg-img: #1e1e1e;
+  --textColor: #fff;
+  --text-color: #fff;
+  --activeText: #4ac1dbcc;
+  --searchText: #fff;
+  --search-bg: #1e1e1e;
+  --alpha-bg: rgba(255, 255, 255, 0.1);
+  --bg-color: ;
+  --primary-bg: #313131;
+  --sidebar-bg: #ffffff0d;
+  --sidebar-mobile: #4c4c4c;
+  --layout-bg: transparent;
+  --artist-bg: none;
+  --artist-filter: none !important;
+  --player-bg: #1e1e1e;
+  --head-bg-mobile: #282525;
+  --head-bg-mobile-shadow: rgb(186 193 193) 0px 1px 24px;
+  --heart-fill-color: #239292;
+  --icon-color: #4ac1dbcc;
+  --vertical-thumb-color: rgb(98, 123, 98, 0.8);
+  --hr-color: rgb(85, 85, 85);
+  --audio-color: #fff;
+  --audio-thumb: #fff;
+  --option-song-mobile: #000000b3;
+
+}
+[data-theme="eiffel"] {
+  --bg-img: url('./static/img/eiffel-bg.jpg');
+}
+
+
+
+@media (max-width: 600px) {
+  .hide-in-mobile {
+    display: none;
+  }
+}

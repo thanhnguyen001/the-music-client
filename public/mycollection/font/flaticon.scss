@@ -1,0 +1,45 @@
+$flaticon-font: "flaticon";
+
+@font-face {
+    font-family: $flaticon-font;
+    src: url("./flaticon.ttf?89c90e0e30fb7c78156f7ea8715b44df") format("truetype"),
+url("./flaticon.woff?89c90e0e30fb7c78156f7ea8715b44df") format("woff"),
+url("./flaticon.woff2?89c90e0e30fb7c78156f7ea8715b44df") format("woff2"),
+url("./flaticon.eot?89c90e0e30fb7c78156f7ea8715b44df#iefix") format("embedded-opentype"),
+url("./flaticon.svg?89c90e0e30fb7c78156f7ea8715b44df#flaticon") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+$flaticon-map: (
+    "repeat-button": "\f101",
+    "microphone": "\f102",
+    "repeat": "\f103",
+    "music": "\f104",
+    "musical-note": "\f105",
+);
+
+.flaticon-repeat-button:before {
+    content: map-get($flaticon-map, "repeat-button");
+}
+.flaticon-microphone:before {
+    content: map-get($flaticon-map, "microphone");
+}
+.flaticon-repeat:before {
+    content: map-get($flaticon-map, "repeat");
+}
+.flaticon-music:before {
+    content: map-get($flaticon-map, "music");
+}
+.flaticon-musical-note:before {
+    content: map-get($flaticon-map, "musical-note");
+}

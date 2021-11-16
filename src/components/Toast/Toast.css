@@ -1,0 +1,27 @@
+#toast {
+    position: fixed;
+    bottom: 100px;
+    left: 2vw;
+    height: 68px;
+    width: 260px;
+    background-color: var(--primary-bg);
+    z-index: 1000;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+    transform: translateX(calc(-100% - 4vw));
+
+    box-shadow: 1px 1px 2px #ccc, -1px 1px 2px #ccc, -1px -1px 2px #ccc, 1px -1px 2px #ccc;
+
+}
+#toast.active {
+    transform: translateX(0);
+}
+.toast-mess-wrap {
+    height: 100%;
+    padding: 10px;
+    color: white;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+}

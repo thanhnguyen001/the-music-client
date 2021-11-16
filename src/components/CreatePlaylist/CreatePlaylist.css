@@ -1,0 +1,104 @@
+.create-pl {
+    position: fixed;
+    inset: 0px;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    display: none;
+}
+.create-pl-wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 450px;
+    width: 350px;
+    background-color: greenyellow;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 10px 16px;
+    font-size: 1.6rem;
+    color: black;
+}
+.hide-create {
+    position: sticky;
+    top: 0;
+    left: 100%;
+    width: 20px;
+    font-size: 2rem;
+    cursor: pointer;
+    caret-color: rgba(0, 0, 0, 0);
+}
+.create-pl-title {
+    text-align: center;
+    margin-top: -8px;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+.create-pl-wrap input {
+    width: 100%;
+    height: 40px;
+    border: none;
+    background-color: #7ac084;
+    border-radius: 40px;
+    padding: 16px;
+    font-size: 1.6rem;
+}
+.create-pl-wrap input:focus {
+    border: none;
+    outline: none;
+}
+.public {
+    margin: 16px 0;
+    padding: 0 12px;
+    caret-color: rgba(0, 0, 0, 0);
+    cursor: context-menu;
+    display: flex;
+    align-items: center;
+}
+.public h4 {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    margin-top: 6px;
+}
+.public-title {
+    flex: 1;
+}
+.btn-create, .btn-adjust {
+    text-align: center;
+    height: 40px;
+    background-color: mediumaquamarine;
+    line-height: 40px;
+    border-radius: 40px;
+    font-size: 1.8rem;
+    cursor: not-allowed;
+    caret-color: rgba(0, 0, 0, 0);
+    opacity: 0.6;
+}
+.public-btn {
+    height: 16px;
+    width: 30px;
+    background-color: #888181;
+    border-radius: 30px;
+    position: relative;
+    padding: 1px;
+    cursor: pointer;
+    transition: all 0.2s linear;
+}
+.public-btn.active {
+    background-color: tomato;
+}
+.public-thumb { 
+    position: absolute;
+    height: 14px;
+    width: 14px;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    background-color: white;
+    border-radius: 50%;
+    transition: all 0.2s linear;
+}
+.public-btn.active .public-thumb {
+    left: 50%;
+}

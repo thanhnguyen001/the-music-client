@@ -1,0 +1,112 @@
+.theme {
+    position: fixed;
+    inset: 0px;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    display: none;
+}
+.theme.active {
+    display: block;
+}
+.theme-wrap {
+    position: absolute;
+    width: 70vw;
+    max-width: 900px;
+    padding-bottom: 20px;
+    background-color: var(--primary-bg);
+    margin: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 10px;
+    caret-color: rgba(0, 0, 0, 0);
+}
+.theme-title {
+    color: var(--text-color);
+    font-size: 4rem;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.theme-title span {
+    cursor: pointer;
+}
+.theme-option-title {
+    color: var(--text-color);
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+.theme-items {
+    display: flex;
+    width: 100%;
+    margin: 0 -7px;
+}
+.theme-item {
+    flex-shrink: 0;
+    width: 20%;
+    padding: 7px;
+    cursor: pointer;
+    position: relative;
+}
+.theme-thumbnail {
+    border-radius: 8px;
+    margin-bottom: 8px;
+    overflow: hidden;
+}
+.theme-thumbnail img {
+    border-radius: 8px;
+}
+.theme-item-title {
+    font-size: 1.6rem;
+    color: var(--text-color);
+}
+.theme-btn {
+    position: absolute;
+    inset: 0px;
+    font-size: 1.4rem;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 80%;
+    display: none;
+}
+.theme-preview,
+.theme-use {
+    width: 80%;
+    font-size: 1.4rem;
+    height: 20px;
+    border-radius: 20px;
+    line-height: 20px;
+    margin: 4px;
+}
+.theme-preview {
+    background-color: var(--alpha-bg);
+}
+.theme-use {
+    background-color: var(--primary-bg);
+}
+.theme-item:hover .theme-btn {
+    display: flex;
+}
+
+@media (max-width: 600px) {
+    .theme-wrap {
+        width: 98vw;
+    }
+    .theme-items {
+        flex-direction: column;
+        height: 80vh;
+        overflow: auto;
+    }
+    .theme-item {
+        width: 100%;
+    }
+    .theme-btn {
+        display: none !important;
+    }
+}

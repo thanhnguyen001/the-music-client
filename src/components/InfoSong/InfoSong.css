@@ -1,0 +1,233 @@
+.info-song {
+    position: absolute;
+    z-index: 1500;
+    top: 50%;
+    right: 30px;
+    width: 300px;
+    background-color: var(--primary-bg);
+    display: none;
+    border-radius: 10px;
+    box-shadow: -1px 1px 5px;
+}
+.info-song.active {
+    display: block;
+}
+.info-song-wrap {
+    color: var(--text-color);
+    caret-color: rgba(0, 0, 0, 0);
+}
+.info-title {
+    height: 56px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    padding: 10px 0 0 10px;
+}
+.info-thumbnail {
+    height: 100%;
+    width: 46px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-right: 8px;
+}
+.info-name {
+    font-size: 1.6rem;
+}
+.info-name-inner,
+.info-artist {
+    width: 220px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: 2rem;
+    line-height: 2rem;
+    white-space: nowrap;
+    cursor: pointer;
+}
+.info-name-inner:hover {
+    color: rgb(0, 86, 245);
+}
+.info-artist {
+    font-size: 1.2rem;
+    opacity: 0.7;
+}
+.info-group-menu {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    background-color: var(--alpha-bg);
+    border-radius: 8px;
+    /* overflow: hidden; */
+    height: 50px;
+}
+.info-group-item {
+    text-align: center;
+    font-size: 1.4rem;
+    cursor: not-allowed;
+    width: 33.3333%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.info-group-item:hover {
+    background-color: rgba(10, 150, 155, 0.8);
+}
+.info-menu-list {
+    margin-top: 12px;
+}
+.info-menu-list li:nth-child(1) {
+    display: none;
+}
+.info-menu-list .info-menu-item:last-child {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.info-menu-item {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+    cursor: pointer;
+    padding: 0 12px;
+}
+.info-menu-item i:nth-child(1) {
+    margin-right: 14px;
+}
+.info-menu-item:hover {
+    background-color: rgba(10, 150, 155, 0.8);
+}
+.add-to-playlist {
+    position: relative;
+}
+.add-to-playlist:hover .show-playlists {
+    display: block;
+}
+.add-to-playlist .fa-chevron-right {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+}
+.show-playlists {
+    position: absolute;
+    height: 280px;
+    width: 220px;
+    transform: translateX(-100%);
+    background-color: var(--primary-bg);
+    border-radius: 10px;
+    box-shadow: -1px 1px 3px;
+    overflow: hidden;
+    display: none;
+}
+
+.show-playlists-wrap {
+    padding-top: 12px;
+    text-align: center;
+}
+.show-playlists-wrap input {
+    width: 80%;
+    margin: 0 auto;
+    height: 30px;
+    border: none;
+    border-radius: 30px;
+    padding-left: 12px;
+    background-color: var(--alpha-bg);
+    caret-color: rgba(0, 0, 0, 0.9);
+}
+.show-playlists-wrap input:focus {
+    outline: none;
+}
+.show-playlists-create {
+    text-align: start;
+    margin-top: 8px;
+}
+.show-playlists-create:hover,
+.playlist-item:hover {
+    background-color: rgba(10, 150, 155, 0.8);
+}
+.playlist-menu {
+    text-align: start;
+    overflow: hidden scroll;
+    padding-bottom: 4px;
+    max-height: 180px;
+}
+.playlist-menu::-webkit-scrollbar {
+    display: none;
+}
+.playlist-item,
+.show-playlists-create {
+    padding: 0 12px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
+.delete-song {
+    display: none;
+}
+.my-playlist-page .delete-song {
+    display: flex;
+}
+.hide-in-large {
+    display: none;
+}
+.artist-song-items .info-song {
+    position: fixed;
+    right: 80px;
+}
+@media (max-width: 600px) {
+    .artist-song-items .info-song, .info-song{
+        position: fixed;
+        right: 0;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        background-color: var(--option-song-mobile);
+        transition: all 0.3s linear;
+        animation: display1 0.3s linear;
+    }
+    .info-song-wrap {
+        background-color: var(--primary-bg);
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        transform: translateY(27%);
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        transition: all 0.3s linear;
+        animation: appear 0.3s linear;
+    }
+    .info-group-menu {
+        display: none;
+    }
+    .info-menu-list li:nth-child(1) {
+        display: flex;
+    }
+    .info-song-wrap .flaticon-microphone {
+        display: block;
+    }
+    .hide-in-large {
+        display: flex;
+    }
+}
+
+@keyframes appear {
+    from {
+        transform: translateY(100%);
+
+    }
+    to {
+        transform: translateY(27%);
+
+    }
+}
+@keyframes display1 {
+    from {
+        display: block;
+
+    }
+    to {
+        display: none;
+
+    }
+}

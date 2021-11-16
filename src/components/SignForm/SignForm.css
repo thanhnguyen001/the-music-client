@@ -1,0 +1,119 @@
+.sign-form {
+    position: fixed;
+    inset: 0px;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+    display: none;
+}
+.sign-form-wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 450px;
+    width: 300px;
+    background-color: greenyellow;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 10px;
+}
+.form {
+    padding: 0 2px;
+}
+.hide-form {
+    position: relative;
+    font-size: 2rem;
+    text-align: end;
+    caret-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+}
+
+.sign-form-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    width: 80%;
+    font-size: 1.6rem;
+    padding: 8px 0;
+    margin: 0 auto;
+    caret-color: rgba(0, 0, 0, 0);
+}
+.sign-form--heading-item {
+    cursor: pointer;
+}
+.sign-form--heading-separate {
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    left: 0;
+    background-color: red;
+    border-radius: 6px;
+    width: 36%;
+    transition: all 0.3s linear;
+}
+.form-body-wrap {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    transform: translateX(0%);
+    transition: all 0.3s linear;
+}
+/* .form-body-wrap.active {
+    transform: translateX(-100%);
+} */
+.form {
+    flex-shrink: 0;
+    width: 100%;
+}
+.responsive-error {
+    font-size: 1.6rem;
+    color: red;
+    padding: 10px 8px 0 12px;
+    height: 2rem;
+    caret-color: rgba(0, 0, 0, 0);
+}
+.sign-form-body {
+    margin-top: 12px;
+    padding: 0 12px;
+}
+.sign-form-body label {
+    font-size: 1.4rem;
+    caret-color: rgba(0, 0, 0, 0);
+    cursor: text;
+}
+.sign-form-body input {
+    margin-top: 8px;
+    height: 24px;
+    width: 100%;
+    padding: 0 8px;
+    border: 1px solid rgb(15, 140, 179);
+    border-radius: 6px;
+}
+.sign-form-body input[type="submit"] {
+    cursor: pointer;
+    margin-top: 18px;
+    background-color: #68efb7;
+}
+.sign-form-body input:focus {
+    outline: none;
+}
+.sign-group.error input {
+    border: 1px solid red;
+}
+.sign-error {
+    font-size: 1.2rem;
+    color: red;
+    margin-top: 4px;
+    padding-left: 4px;
+    height: 1.4rem;
+    margin-bottom: 4px;
+    text-align: end;
+    caret-color: rgba(0, 0, 0, 0);
+}
+
+@media (max-width: 470px) {
+    .sign-form-wrap {
+        top: 36%;
+    }
+}
