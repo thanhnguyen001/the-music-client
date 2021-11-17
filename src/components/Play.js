@@ -500,7 +500,7 @@ function Play({ audioRef }) {
         count.current = 0;
     }
     const renderLyricSongs = (list) => {
-        if (!list) return;
+        if (!list || list.length <= 0) return;
         return list.map((item, index) => <div className={`lyrics-item ${index === 0 ? "pointer" : ""} ${index === currentSong.song.index ? "active" : ""}`} key={index}>
             <div className="lyrics-item-wrap" onClick={(e) => playSong(item, index, e)}>
                 <div className="lyrics-thumbnail">
@@ -675,7 +675,7 @@ function Play({ audioRef }) {
 
                     {lyricsMode === "songs" && <div className="playlist-lyrics">
                         <div className="lyrics-list">
-                            {currentPlaylist && currentPlaylist.playlist && renderLyricSongs(currentPlaylist.playlist)}
+                            {currentPlaylist?.playlist && currentPlaylist?.playlist.length > 0 && renderLyricSongs(currentPlaylist.playlist)}
                         </div>
 
                         <div className="zm-btn">
