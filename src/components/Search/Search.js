@@ -19,7 +19,7 @@ function Search() {
     const { width: windowWidth } = useDimensionWindow();
 
     const name = useSelector(state => state.pageName);
-    const currentPlaylist = useSelector(state => state.Playlist);
+    // const currentPlaylist = useSelector(state => state.Playlist);
     const isPlay = useSelector(state => state.isPlay);
     const currentSong = useSelector(state => state.PlaySong);
 
