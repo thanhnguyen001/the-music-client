@@ -57,7 +57,7 @@ function Carousel(props) {
             else return `/nghe-si/${link}`.replaceAll("//", "/");
         }
         else if (str.includes("/video-clip")) {
-            if (isActiveVideo.links[1]) {
+            if (isActiveVideo && isActiveVideo.links && isActiveVideo.links[1]) {
                 return `${isActiveVideo.links[1]}${link}`;
             }
             else return `${location.pathname}${link}`

@@ -3,6 +3,8 @@ import './Top100.css';
 import axiosClient from '../../api/axiosClient';
 // import Carousel from '../../components/Carousel/Carousel';
 import { useDispatch, useSelector } from 'react-redux';
+import Skeleton from '../../components/Skeleton/Skeleton'
+
 const Carousel = lazy(() => import('../../components/Carousel/Carousel'));
 
 // Top100Page.propTypes = {
@@ -36,7 +38,7 @@ function Top100Page({ match }) {
         }
 
         fetchTop100();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const renderTop100 = (list) => {
@@ -53,6 +55,7 @@ function Top100Page({ match }) {
             </div>
             <div className="popular">
                 {list100.length > 0 && renderTop100(list100)}
+                {(!list100 || list100.length <= 0) && <Skeleton type="home" />}
             </div>
         </div>
     );

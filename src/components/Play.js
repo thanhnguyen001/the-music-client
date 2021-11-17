@@ -58,6 +58,7 @@ function Play({ audioRef }) {
     const waitingSongs = useRef([]);
     const defaultPlaylist = useRef([]);
     useEffect(() => {
+        if (!newPlaylist) return;
         defaultPlaylist.current = [];
         newPlaylist.playlist.forEach((item, index) => {
             return defaultPlaylist.current.push({
@@ -100,6 +101,10 @@ function Play({ audioRef }) {
         }
         // console.log("ok")
         if (!audioRef) return;
+        audioRef.pause();
+        audioRef.src = null;
+        const time_left = $$('.time-left');
+        if (time_left) time_left.textContent = "00:00";
         if (Object.keys(newSong).length !== 0) {
             const audioPlay = async () => {
                 setCurrentSong(newSong);
@@ -107,17 +112,6 @@ function Play({ audioRef }) {
                 // console.log('current-song: ', currentSong);
 
                 localStorage.setItem('CURRENT_SONG', JSON.stringify(newSong));
-
-                // const playPromise = audioRef.play();
-                // if (playPromise !== undefined) {
-                //     playPromise.then(_ => {
-                //         // Automatic playback started!
-                //         // Show playing UI.
-                //     })
-                //         .catch(err => {
-
-                //         })
-                // }
                 const fetchAudio = async () => {
                     try {
                         const url = `/api/song/${newSong.song.song.encodeId}`;

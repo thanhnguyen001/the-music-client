@@ -38,11 +38,12 @@ img {
   --activeText: #fff;
   --searchText: #699714;
   --search-bg: #03641b;
-  --alpha-bg: rgba(255, 255, 255, 0.1);
+  --alpha-bg: rgba(255, 255, 255, 0.3);
   --bg-img: url('./static/img/imgonline-com-ua-resize-n78dLyD8OND.jpg');
   --primary-bg: #188533;
   --sidebar-bg: #29a047;
   --sidebar-blur: rgba(41, 160, 71, 0.3);
+  --sidebar-mobile: #187f2c;
   --layout-bg: transparent;
   --artist-bg: #00ff61cc;
   --head-bg-mobile: rgb(6, 143, 33);

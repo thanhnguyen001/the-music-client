@@ -51,7 +51,7 @@ function ArtistPage({ match }) {
         const autoFetch = setInterval(() => {
             if (!isLoaded) fetchArtist();
             else clearInterval(autoFetch);
-        }, 3000);
+        }, 15000);
 
         return () => clearInterval(autoFetch)
         // eslint-disable-next-line react-hooks/exhaustive-deps

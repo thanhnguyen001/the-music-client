@@ -325,7 +325,7 @@ function InfoSong(props) {
                                 </div>
 
                                 <ul className="playlist-menu">
-                                    {playlists.length > 0 && showPlaylist(playlists)}
+                                    {playlists && playlists.length > 0 && showPlaylist(playlists)}
                                 </ul>
 
                             </div>

@@ -128,9 +128,10 @@ function MyPage() {
             return;
         }
         formData.append("file", e.target.files[0], "megazord.jpg");
+
         axios({
             method: "POST",
-            url: "http://localhost:1368/api/user/update/avatar",
+            url: `${process.env.MY_WEB ? process.env.MY_WEB : "http://localhost:1368"}/api/user/update/avatar`,
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("token") || "not-found"}`,
                 'Content-Type': 'multipart/form-data boundary=' + Math.random().toString().substr(2),

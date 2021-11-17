@@ -25,7 +25,7 @@ function Playlist(props) {
     const isFirst = useRef(true);
     const isNFirst = useRef(false);
 
-    const liked = useSelector(state => state.user).liked || JSON.parse(localStorage.getItem("user")).liked || [];
+    const user = useSelector(state => state.user) || JSON.parse(localStorage.getItem("user"));
 
     const [playlist, setPlaylist] = useState([]);
     const [sortMode, setSortMode] = useState('Mặc định');
@@ -241,16 +241,21 @@ function Playlist(props) {
                 }
                 // console.log(info.getBoundingClientRect())
                 if (info.getBoundingClientRect().top < 0) {
-                    info.style.transform = `translateY(calc(-100% + ${-1 * info.getBoundingClientRect().top}px))`
+                    info.style.transform = `translateY(calc(-100% + ${-1 * info.getBoundingClientRect().top + 150}px))`
                 }
                 else if (info.getBoundingClientRect().bottom < 0) {
-                    info.style.transform = `translateY(calc(-100% + ${-1 * info.getBoundingClientRect().bottom}px))`
+                    info.style.transform = `translateY(calc(-100% + ${-1 * info.getBoundingClientRect().bottom + 150}px))`
                 }
             }
         }
     }
 
     const handleAddToLibrary = async (song, action, index) => {
+        if (!user || !user.username) {
+            const form = document.getElementById("form");
+            if (form) form.style.display = "block";
+            return;
+        }
         const heart = document.querySelectorAll(`#song-${index} .fa-heart`);
         if (action === "DELETE") {
             heart[0].style.animation = "deleteFromLibrary 0.5s linear";
@@ -297,8 +302,8 @@ function Playlist(props) {
 
     const renderSongs = (songs) => {
         let group = "";
-        if (liked && songs.length > 0) {
-            group = liked.reduce((str, item) => {
+        if (user && user.liked && user.liked.length > 0 && songs.length > 0) {
+            group = user.liked.reduce((str, item) => {
                 return str + item.encodeId + "-";
             }, "");
         }

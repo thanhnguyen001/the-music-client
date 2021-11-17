@@ -38,7 +38,7 @@
 .video-text {
     height: 50px;
     margin-left: 8px;
-    color: whitesmoke;
+    color: var(--text-color);
 }
 .video-title {
     font-size: 1.6rem;
@@ -50,7 +50,7 @@
 }
 .hide-video {
     font-size: 3rem;
-    color: white;
+    color: var(--text-color);
 }
 .video-body {
     display: flex;
@@ -89,7 +89,7 @@ video {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: whitesmoke;
+    color: var(--text-color);
     padding: 16px;
     font-size: 1.8rem;
     font-weight: 700;
@@ -132,13 +132,13 @@ video {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: whitesmoke;
+    color: var(--text-color);
     font-size: 1.4rem;
 }
 .video-item-info {
     margin-left: 8px;
     font-size: 1.4rem;
-    color: whitesmoke;
+    color: var(--text-color);
 }
 .video-item-info > div {
     display: -webkit-box;
