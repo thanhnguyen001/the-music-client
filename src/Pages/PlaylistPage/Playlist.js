@@ -213,9 +213,19 @@ function Playlist(props) {
     }
 
     const handleShowMenu = (index) => {
-        if (windowWidth <= 600) return;
         const info = document.querySelector(`#song-${index} .info-song`);
         const song = document.getElementById(`song-${index}`);
+        if (windowWidth <= 600) {
+            if (info.className.includes("active")) {
+                info.classList.remove("active");
+                info.style.top = "50%";
+                info.style.transform = `translateY(0)`;
+            }
+            else {
+                info.classList.add("active");
+            }
+            return;
+        }
         if (info && song) {
             if (info.className.includes("active")) {
                 info.classList.remove("active");
