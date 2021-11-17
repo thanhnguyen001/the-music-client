@@ -170,7 +170,7 @@ function Search() {
         const result = [];
         list.forEach((item, index) => {
             if (item.type === 4 || item.type === 1) result.push(
-            <div className={`suggest-item ${currentSong.song.song.encodeId === item.id ? "play" :""}`} key={index} onClick={() => handleChangePageOrPlay(item)}>
+            <div className={`suggest-item ${currentSong?.song.song.encodeId === item.id ? "play" :""}`} key={index} onClick={() => handleChangePageOrPlay(item)}>
                 {item.type === 4 && <Link to={`/nghe-si/${item.aliasName}`}>
                     <div className="song-item-left">
                         <div className="song-item-left-wrap">
@@ -193,9 +193,9 @@ function Search() {
                 </Link>}
                 {item.type === 1 && <div className="song-item-left">
                     <div className="song-item-left-wrap">
-                        <div className={`song-item-img ${currentSong.song.song.encodeId === item.id ? "playing" :""}`} >
+                        <div className={`song-item-img ${currentSong?.song.song.encodeId === item.id ? "playing" :""}`} >
                             <div className="song-item-img-overlay">
-                                {((currentSong.song.song.encodeId !== item.id) || isPlay === "pause") && <i className="fas fa-play"></i>}
+                                {((currentSong?.song.song.encodeId !== item.id) || isPlay === "pause") && <i className="fas fa-play"></i>}
                                 {isPlay === "play" && <div className="action-play">
                                     <div></div> <div></div> <div></div> <div></div>
                                 </div>}

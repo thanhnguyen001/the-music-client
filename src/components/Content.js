@@ -8,6 +8,7 @@ import './Content.css';
 import useDimensionWindow from '../hooks/useDimensionWindow';
 import { useLocation } from 'react-router';
 import Search from './Search/Search';
+import { useSelector } from 'react-redux';
 
 
 function Content() {
@@ -61,7 +62,7 @@ function Content() {
 
     const timeOut = useRef(null);
     const isUp = useRef(0);
-
+    const currentSong = useSelector(state => state.PlaySong);
     const handleScroll = () => {
         const contentE = document.querySelector(".content");
         const infoSong = document.querySelector(".info-song.active");
@@ -69,8 +70,8 @@ function Content() {
 
         if (!contentE) return;
         const scrollTop = contentE.scrollTop;
-        const scrollHeight = contentE.scrollHeight - 90;
-        const contentHeight = contentE.clientHeight - 90;
+        const scrollHeight = currentSong ? contentE.scrollHeight - 90 : contentE.scrollHeight;
+        const contentHeight = currentSong ? contentE.clientHeight - 90 : contentE.clientHeight;
         const thumbVertical = document.querySelector(".vertical-thumb");
         const trackVertical = document.querySelector(".vertical-track");
         // Handle Thumb Vertical
