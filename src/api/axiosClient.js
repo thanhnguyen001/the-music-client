@@ -1,12 +1,12 @@
 import axios from 'axios';
 // import queryString from 'query-string'
 // 
-const BASE_URL = process.env.NODE_ENV !== 'production' ? "http://localhost:1368" : process.env.MY_WEB;
-// const BASE_URL = process.env.NODE_ENV !== 'production' ? "https://the-music-server.herokuapp.com" : "https://the-music-server.herokuapp.com";
+// const BASE_URL = process.env.NODE_ENV !== 'production' ? "http://localhost:1368" : process.env.MY_WEB;
+const BASE_URL = process.env.NODE_ENV !== 'production' ? "https://the-music-server.herokuapp.com" : "https://the-music-server.herokuapp.com";
 
 const versionDefault = {
     key: "zmp3_app_version.1",
-    value: 148
+    value: 149
 }
 
 const axiosService = axios.create({
