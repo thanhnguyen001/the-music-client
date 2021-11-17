@@ -164,7 +164,7 @@
 }
 
 .my-playlist-page h3 {
-    color: white;
+    color: var(--text-color);
     font-size: 2rem;
     padding: 0 4vw;
 }

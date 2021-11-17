@@ -46,7 +46,7 @@
     cursor: pointer;
     z-index: 1000;
     caret-color: rgba(0, 0, 0, 0);
-    color: whitesmoke;
+    color: var(--text-color);
     opacity: 0.7;
 }
 .btn-right {
@@ -65,14 +65,14 @@
 .dot {
     font-size: 1.2rem;
     border-radius: 50%;
-    border: 1px solid white;
+    border: 1px solid var(--text-color);
     width: 8px;
     height: 8px;
     margin: 0 2px;
-    transition: all 0.2 linear;
+    transition: all 0.2s linear;
 }
 .dot.active {
-    background-color: white;
+    background-color: var(--text-color);
 }
 .cd-animate {
     position: absolute;
@@ -476,7 +476,7 @@
         justify-content: center;
         align-items: center;
         font-size: 1.4rem;
-        color: whitesmoke;
+        color: var(--text-color);
     }
     .play-btn-mobile > i {
         margin-right: 10px;

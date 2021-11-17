@@ -527,6 +527,13 @@ function Play({ audioRef }) {
         dispatch(addSong(song, index));
     }
 
+    const handleScroll = (e) => {
+        if (e.target.scrollTop > 0) {
+            e.target.classList.add("scroll")
+        }
+        else e.target.classList.remove("scroll")
+    }
+
     return (
         <Fragment>
             <div className="play-group playing" id="play-group" onClick={handleActiveLyricsMode} >
@@ -673,8 +680,8 @@ function Play({ audioRef }) {
                         </div>
                     </div>
 
-                    {lyricsMode === "songs" && <div className="playlist-lyrics">
-                        <div className="lyrics-list">
+                    {lyricsMode === "songs" && <div className="playlist-lyrics" onScroll={handleScroll}>
+                        <div className="lyrics-list" >
                             {currentPlaylist?.playlist && currentPlaylist?.playlist.length > 0 && renderLyricSongs(currentPlaylist.playlist)}
                         </div>
 

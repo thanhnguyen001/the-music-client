@@ -8,7 +8,9 @@ function useClickOutSide(ref) {
     useEffect(() => {
         const handleClickOutSide = (e) => {
             if (windowWidth < 470) {
+            
                 if (ref.current && (!ref.current.contains(e.target) || e.target.closest(".part1__item") || e.target.closest(".part1__title")) ) {
+                    if (e.target.closest(".part1__item") && (e.target.closest(".delete-playlist-menu") || e.target.closest(".sidebar-playlist-menu"))) return;
                     ref.current.style.transform = "translateX(-100%)";
                 }
             }

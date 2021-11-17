@@ -143,17 +143,18 @@
     top: 24px;
     right: 24px;
     font-size: 2.8rem;
-    color: rgb(203, 216, 203);
+    color: var(--icon-color);
     caret-color: rgba(0, 0, 0, 0);
     cursor: pointer;
 }
+
 .lyrics-list {
     display: flex;
     flex-wrap: nowrap;
     position: absolute;
     left: 50%;
     bottom: 220px;
-    top: 50px;
+    top: 10px;
     margin: 0 -16px;
     transition: transform 0.3s linear;
 }
@@ -250,7 +251,7 @@
     height: 40px;
     background-color: transparent;
     z-index: 1;
-    box-shadow: 8px 24px 40px #1d839a;
+    box-shadow: 8px 24px 40px var(--primary-bg);
     display: none;
 }
 
@@ -361,7 +362,7 @@
     .scroll-down-btn {
         right: 8px;
     }
-    .play-lyrics.active .playlist-lyrics::after {
+    .playlist-lyrics.scroll::after {
         display: block;
     }
     /* .playlist-lyrics::-webkit-scrollbar {
@@ -372,6 +373,9 @@
     }
     .lyrics-info {
         flex: 1;
+    }
+    .play-group {
+        bottom: -1px;
     }
 }
 @media (max-width: 470px) {

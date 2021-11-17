@@ -321,3 +321,11 @@ ul {
         background: var(--sidebar-mobile);
     }
 }
+@media (max-width: 600px) {
+    .part1__item, .user-playlists a {
+        opacity: 1;
+    }
+    .user-playlists .delete-playlist-menu {
+        display: block;
+    }
+}

@@ -15,7 +15,7 @@
 .newrelease-title {
     font-size: 4rem;
     padding: 0 4vw;
-    color: whitesmoke;
+    color: var(--text-color);
 }
 .newrelease .main-playlist {
     margin-top: 0;
@@ -57,7 +57,7 @@
 .rank-stt {
     display: none;
     font-size: 2.6rem;
-    color: white;
+    color: var(--text-color);
     -webkit-text-stroke: rgb(255, 255, 255);
     -webkit-text-stroke-width: 1px !important;
     line-height: 2.6rem;

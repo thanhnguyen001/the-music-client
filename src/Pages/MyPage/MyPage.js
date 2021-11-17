@@ -74,10 +74,12 @@ function MyPage() {
 
     // Auto Change Slide
     useEffect(() => {
+        dispatch({ type: "PAGE_NAME", payload: "My music" })
         const auto = setInterval(() => {
             changeSlide();
         }, 2500);
         return () => clearInterval(auto);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const renderSlider = (list) => {
@@ -123,7 +125,7 @@ function MyPage() {
     const handleUpdateAvatar = async (e) => {
         const formData = new FormData();
         if (e.target.files[0].size > 100000) {
-            dispatch({ type: "TOAST", payload: "Vui lòng không chọn ảnh kích cỡ lớn hơn 100K"});
+            dispatch({ type: "TOAST", payload: "Vui lòng không chọn ảnh kích cỡ lớn hơn 100K" });
             e.target.value = null;
             return;
         }
@@ -139,7 +141,7 @@ function MyPage() {
             data: formData
         }).then(res => {
             if (res.data.success) {
-                dispatch({ type: "LOG_IN", payload: res.data.user})
+                dispatch({ type: "LOG_IN", payload: res.data.user })
             }
         }).catch(err => {
             console.log(err.message)
