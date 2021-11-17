@@ -481,6 +481,7 @@ function Play({ audioRef }) {
     }
     const handleChangeMode = (num) => {
         const items = $$(".play-lyrics .navigation-item");
+        if (!items) return;
         [...items].forEach((item, index) => {
             if (index === num) item.classList.add("active");
             else item.classList.remove("active");
@@ -499,6 +500,7 @@ function Play({ audioRef }) {
         count.current = 0;
     }
     const renderLyricSongs = (list) => {
+        if (!list) return;
         return list.map((item, index) => <div className={`lyrics-item ${index === 0 ? "pointer" : ""} ${index === currentSong.song.index ? "active" : ""}`} key={index}>
             <div className="lyrics-item-wrap" onClick={(e) => playSong(item, index, e)}>
                 <div className="lyrics-thumbnail">
@@ -673,7 +675,7 @@ function Play({ audioRef }) {
 
                     {lyricsMode === "songs" && <div className="playlist-lyrics">
                         <div className="lyrics-list">
-                            {currentPlaylist && currentPlaylist.playlist.length > 0 && renderLyricSongs(currentPlaylist.playlist)}
+                            {currentPlaylist && currentPlaylist.playlist && renderLyricSongs(currentPlaylist.playlist)}
                         </div>
 
                         <div className="zm-btn">
