@@ -31,7 +31,7 @@
     color: var(--text-color);
 }
 
-.suggest-item:hover, .suggest-item.active {
+.suggest-item:hover, .suggest-item.active, .suggest-item.play {
     background-color: var(--alpha-bg);
 }
 .suggest-text {
@@ -46,7 +46,7 @@
 .result-suggest-link i {
     opacity: 1;
 }
-.ong-item-thumb.is-artist {
+.song-item-thumb.is-artist {
     border-radius: 50%;
     overflow: hidden;
 }
@@ -69,3 +69,7 @@
     font-size: 1.4rem;
     opacity: 0.7;
 }
+.song-item-img.playing .action-play, .song-item-img.playing .song-item-img-overlay {
+    display: flex;
+}
+

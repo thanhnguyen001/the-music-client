@@ -50,10 +50,13 @@ function Playlist(props) {
         if (mainPlaylist && mainPlaylist.dataset.id === currentPlaylist.encodeId) {
             handleRotateThumbnail();
         }
+        else {
+            handleRotateThumbnail(false, true);
+        }
 
-    }, [infoAlbum, isPlay])
+    }, [infoAlbum, isPlay, currentPlaylist])
 
-    const handleRotateThumbnail = (stt) => {
+    const handleRotateThumbnail = (stt, stt2) => {
 
         const songPlay = document.querySelector(".song-item.active");
         // console.log("ok")
@@ -62,7 +65,7 @@ function Playlist(props) {
         const cover = document.querySelector(".cover-img-wrap");
         if (thumbnail && cover) {
             const actionCover = cover.querySelector(".action-play");
-            if (isPlay === "play" || stt) {
+            if ((isPlay === "play" || stt) && !stt2) {
                 // songPlay.classList.add("play");
                 actionCover.style.display = "flex";
                 thumbnail.style.display = "flex";
@@ -71,10 +74,10 @@ function Playlist(props) {
                 cover.style.animation = "rotateCd 12s linear infinite";
                 isNFirst.current = true;
             }
-            else {
+            else if (isPlay === "pause" || !stt || stt2) {
                 // songPlay.classList.remove("play");
                 if (!isNFirst.current) return;
-                if (!songPlay) return;
+                if (!songPlay && !stt2) return;
                 actionCover.style.display = "none";
                 cover.style.animation = "turnOne 0.3s linear";
                 if (iconPlay) iconPlay.style.display = "block";
@@ -181,8 +184,9 @@ function Playlist(props) {
     const HandleScrollIntoView = (index, encodeId) => {
         // const crs = JSON.parse(localStorage.getItem("CURRENT_SONG"));
         const crplt = JSON.parse(localStorage.getItem("CURRENT_PLAYLIST"));
-        if (!currentSong || playlist.length <= 0) return;
-        if (playlist[0].encodeId !== crplt.playlist[0].encodeId) return;
+        if (!currentSong || !playlist || playlist.length <= 0 || !crplt || crplt.playlist.length <= 0) return;
+
+        if (playlist[0]?.encodeId !== crplt.playlist[0]?.encodeId) return;
         if (currentSong.song.index === index) {
             const songElement = document.getElementById(`song-${currentSong.song.index}`);
             const songs = document.querySelectorAll(".song-item");

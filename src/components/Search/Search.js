@@ -19,6 +19,10 @@ function Search() {
     const { width: windowWidth } = useDimensionWindow();
 
     const name = useSelector(state => state.pageName);
+    const currentPlaylist = useSelector(state => state.Playlist);
+    const isPlay = useSelector(state => state.isPlay);
+    const currentSong = useSelector(state => state.PlaySong);
+
     const [pageName, setPageName] = useState("Home");
     const [keyword, setKeyword] = useState("");
     const [suggest, setSuggest] = useState([]);
@@ -100,7 +104,7 @@ function Search() {
     }
 
     const handleFetchData = (e) => {
-        console.log(e.target.value);
+        // console.log(e.target.value);
         const key = e.keyCode || e.which;
         if (key === 40 || key === 38) return;
         if (e.target.value !== "") fetchSearch(e.target.value, '/api/suggest');
@@ -125,14 +129,20 @@ function Search() {
                     item.artistsNames = item.artists.map(ele => ele.name).join(" ,").slice(0, -2);
                     const { data } = await axiosService.post(`/api/recommend/${item.encodeId}`);
                     // console.log(data.data);
-                    dispatch(addPlaylist([item, ...data.data.items]));
+                    dispatch(addPlaylist([[item, ...data.data.items], item.encodeId]));
                     dispatch(addSong(item, 0));
+                    dispatch({ type: "play" });
                 } catch (error) {
                     console.log(error.message)
                 }
             }
+            if (currentSong?.song.song.encodeId === item.id) {
+                if (isPlay === "play") dispatch({ type: "pause" });
+                else dispatch({ type: "play" });
+                return;
+            }
+            else fetchRecommend();
 
-            fetchRecommend();
         }
         // setKeyword("");
     }
@@ -159,16 +169,13 @@ function Search() {
     const renderSuggestLink = (list) => {
         const result = [];
         list.forEach((item, index) => {
-            if (item.type === 4 || item.type === 1) result.push(<div className="suggest-item" key={index} onClick={() => handleChangePageOrPlay(item)}>
+            if (item.type === 4 || item.type === 1) result.push(
+            <div className={`suggest-item ${currentSong.song.song.encodeId === item.id ? "play" :""}`} key={index} onClick={() => handleChangePageOrPlay(item)}>
                 {item.type === 4 && <Link to={`/nghe-si/${item.aliasName}`}>
                     <div className="song-item-left">
                         <div className="song-item-left-wrap">
                             <div className="song-item-img" >
-                                {item.type === 1 && <div className="song-item-img-overlay">
-                                    <i className="fas fa-play"></i>
-                                </div>}
                                 <div className={`song-item-thumb ${item.type === 4 ? "is-artist" : ""}`}>
-                                    <i className="fas fa-play"></i>
                                     <img src={item.thumb || item.avatar || item.thumbVideo} alt="" />
                                 </div>
                             </div>
@@ -186,12 +193,15 @@ function Search() {
                 </Link>}
                 {item.type === 1 && <div className="song-item-left">
                     <div className="song-item-left-wrap">
-                        <div className="song-item-img" >
-                            {item.type === 1 && <div className="song-item-img-overlay">
-                                <i className="fas fa-play"></i>
-                            </div>}
+                        <div className={`song-item-img ${currentSong.song.song.encodeId === item.id ? "playing" :""}`} >
+                            <div className="song-item-img-overlay">
+                                {((currentSong.song.song.encodeId !== item.id) || isPlay === "pause") && <i className="fas fa-play"></i>}
+                                {isPlay === "play" && <div className="action-play">
+                                    <div></div> <div></div> <div></div> <div></div>
+                                </div>}
+                            </div>
                             <div className={`song-item-thumb ${item.type === 4 ? "is-artist" : ""}`}>
-                                <i className="fas fa-play"></i>
+                                {/* <i className="fas fa-play"></i> */}
                                 <img src={item.thumb || item.avatar || item.thumbVideo} alt="" />
                             </div>
                         </div>

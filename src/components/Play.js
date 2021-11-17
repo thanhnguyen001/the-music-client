@@ -58,16 +58,18 @@ function Play({ audioRef }) {
     const waitingSongs = useRef([]);
     const defaultPlaylist = useRef([]);
     useEffect(() => {
-        if (!newPlaylist) return;
+        if (!newPlaylist || !newPlaylist.playlist || newPlaylist.playlist.length <=0) return;
         defaultPlaylist.current = [];
-        newPlaylist.playlist.forEach((item, index) => {
-            return defaultPlaylist.current.push({
-                encodeId: item.encodeId,
-                index: index
-            })
-        });
-        waitingSongs.current = [...defaultPlaylist.current];
-        // console.log(waitingSongs.current)
+        if (newPlaylist.playlist.length > 0) {
+            newPlaylist.playlist.forEach((item, index) => {
+                return defaultPlaylist.current.push({
+                    encodeId: item.encodeId,
+                    index: index
+                })
+            });
+            waitingSongs.current = [...defaultPlaylist.current];
+            // console.log(waitingSongs.current)
+        }
 
     }, [newPlaylist])
     // Handle liked songs
@@ -671,7 +673,7 @@ function Play({ audioRef }) {
 
                     {lyricsMode === "songs" && <div className="playlist-lyrics">
                         <div className="lyrics-list">
-                            {currentPlaylist && renderLyricSongs(currentPlaylist.playlist)}
+                            {currentPlaylist && currentPlaylist.playlist.length > 0 && renderLyricSongs(currentPlaylist.playlist)}
                         </div>
 
                         <div className="zm-btn">

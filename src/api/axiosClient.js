@@ -1,21 +1,20 @@
 import axios from 'axios';
 // import queryString from 'query-string'
 // 
-// const BASE_URL = process.env.NODE_ENV !== 'production' ? "http://localhost:1368" : process.env.MY_WEB;
-const BASE_URL = process.env.NODE_ENV !== 'production' ? "https://the-music-server.herokuapp.com" : "https://the-music-server.herokuapp.com";
+const BASE_URL = process.env.NODE_ENV === 'development' ? "http://localhost:1368" : "https://the-music-server.herokuapp.com";
+// const BASE_URL = process.env.NODE_ENV !== 'production' ? "https://the-music-server.herokuapp.com" : "https://the-music-server.herokuapp.com";
 
 const versionDefault = {
     key: "zmp3_app_version.1",
     value: 149
 }
-
 const axiosService = axios.create({
     baseURL: BASE_URL,
     headers: {
         'Content-Type': 'application/json',
         // "Access-Control-Allow-Origin": "*",
     },
-    
+
 });
 
 axiosService.interceptors.request.use(async (config) => {
@@ -23,13 +22,14 @@ axiosService.interceptors.request.use(async (config) => {
     const token = localStorage.getItem("token");
     const zmp3 = JSON.parse(localStorage.getItem('zmp3_rqid'));
     const version = JSON.parse(localStorage.getItem('version'));
+
     if (token) {
         config.headers.Authorization = `Bearer ${token}`;
         // console.log(token)
         localStorage.setItem('token', token);
     }
     if (zmp3) {
-        const dt = {...config.data}
+        const dt = { ...config.data }
         // console.log(config.data)
         config.data = { zmp3, version, ...dt }
         // console.log(config.data)
