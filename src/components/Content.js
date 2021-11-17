@@ -26,8 +26,6 @@ function Content() {
 
         if (windowWidth < 600) {
             if (searchBg) searchBg.style.opacity = 1;
-            searchBg.style.background = "rgb(6, 143, 33)";
-            searchBg.style.boxShadow = "-1px 1px 24px #2de72d";
         }
         else {
             if (searchBg) searchBg.style.opacity = 0;
@@ -63,9 +61,12 @@ function Content() {
     const timeOut = useRef(null);
     const isUp = useRef(0);
     const currentSong = useSelector(state => state.PlaySong);
+
     const handleScroll = () => {
         const contentE = document.querySelector(".content");
         const infoSong = document.querySelector(".info-song.active");
+        const icons = document.querySelectorAll(".search-group i");
+
         if (infoSong) infoSong.classList.remove("active");
 
         if (!contentE) return;
@@ -108,6 +109,10 @@ function Content() {
         else {
             if (scrollTop === 0) {
 
+                icons[0].style.display = "block";
+                icons[1].style.display = "none";
+                icons[2].style.display = "none";
+
                 isUp.current = 0;
                 // searchBox.style.background = "none";
                 searchBg.style.opacity = 1;
@@ -129,13 +134,21 @@ function Content() {
                 searchBox.style.transform = "translateY(-100%)";
                 searchBox.style.boxShadow = "none"
                 // searchBg.style.opacity = 1;
+                if (!icons) return;
+                icons[0].style.display = "block";
+                icons[1].style.display = "none";
+                icons[2].style.display = "none";
             }
             else {
                 isUp.current = scrollTop;
                 searchBox.style.transform = "translateY(0px)";
                 searchBox.style.backgroundColor = "var(--search-bg)";
-                searchBox.style.boxShadow = "0 3px 5px rgba(255, 255, 255, 0.2)"
+                searchBox.style.boxShadow = "0 3px 5px rgba(255, 255, 255, 0.2)";
                 // searchBg.style.opacity = 0;
+                if (!icons) return;
+                icons[0].style.display = "none";
+                icons[1].style.display = "block";
+                icons[2].style.display = "block";
             }
         }
     }

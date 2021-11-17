@@ -207,6 +207,7 @@ button.disabled {
 @media (max-width: 480px) {
     .zm-section-title i {
         opacity: 1;
+        margin-left: 4px;
     }
     .zm-btn {
         display: none;

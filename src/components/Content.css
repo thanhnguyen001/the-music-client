@@ -263,5 +263,10 @@ i.fas.fa-tshirt {
 @media (max-width: 430px) {
     .search {
         width: 100%;
+        height: 50px;
+    }
+    .fa-arrow-right {
+        margin: 0 16px;
     }
 }
+

@@ -121,7 +121,8 @@ function Carousel(props) {
                             <a href={item.link} title={item.title}>
                                 <div className="card-title">
                                     <h3 className="title">{item.title}</h3>
-                                    <h4 className="card-description">{item.sortDescription}</h4>
+                                    {!isSP && <h4 className="card-description">{item.sortDescription}</h4>}
+                                    {isSP && <h4 className="card-description">{item.artistsNames}</h4>}
                                 </div>
                             </a>
                         </div>
@@ -194,10 +195,10 @@ function Carousel(props) {
                     <div className="zm-carousel-wrap" tabIndex={index} ref={carouselRef}>
 
                         <div className="zm-carousel" tabIndex={index} id={`carousel-${index}`}>
-                            {!!list && list.length > 0 && showCarousel(list)}
+                            {list && list?.length > 0 && showCarousel(list)}
                         </div>
 
-                        {!isSP && list.length > itemsInScreen && showBtnChangeSlide()}
+                        {!isSP && list &&list.length > itemsInScreen && showBtnChangeSlide()}
                     </div>
                 </div>
             </div>

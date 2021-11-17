@@ -3,7 +3,7 @@
     height: 100%;
 }
 .skeleton-wrap {
-    background-color: rgb(63, 126, 64, 0.8);
+    background-color: var(--primary-bg);
     border-radius: 10px;
     position: relative;
     overflow: hidden;

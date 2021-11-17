@@ -67,7 +67,7 @@ function SearchPage({ match }) {
         fetchSearch("counter");
         dispatch({
             type: "PAGE_NAME",
-            payload: `Tìm kiếm cho ${query}`
+            payload: `Tìm kiếm cho "${query}"`
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);

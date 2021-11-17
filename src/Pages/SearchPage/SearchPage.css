@@ -77,7 +77,7 @@
     padding: 0 5px;
     box-shadow: 0 2px 10px 0 rgb(235, 221, 221, 0.4);
     border-radius: 10px;
-    background-color: rgb(47, 97, 105);
+    background-color: rgb(36, 151, 170);
 }
 .sp-top-item {
     color: var(--text-color);
@@ -196,9 +196,49 @@
     .sp-item {
         flex-shrink: 0;
     }
+    .search-page .zm-carousel {
+        flex-direction: column;
+        margin: -8px 0;
+    }
+    .search-page .zm-carousel-item {
+        width: 100%;
+        padding: 8px 0;
+    }
+    .search-page .zm-card {
+        display: flex;
+    }
+    .search-page .zm-card .card-thumbnail {
+        flex-shrink: 0;
+    }
+    .search-page .zm-card .card-img {
+        max-width: 60px;
+        max-height: 60px;
+    }
+    .search-page .card-title .title,
+    .search-page .card-description {
+        -webkit-line-clamp: 1;
+    }
+    .search-page .card-info {
+        margin-left: 12px;
+    }
+    .search-page .zm-carousel-item.artist .artist-btn {
+        display: none;
+    }
+    .search-page .card-artist {
+        flex: 1;
+        margin-left: 12px;
+    }
+    .search-page .card-artist-name,
+    .search-page .card-artist-follow {
+        width: 100%;
+        text-align: start;
+    }
+    .search-page .card-thumbnail:hover .card-thumbnail-hover {
+        display: none;
+    }
 }
 @media (max-width: 470px) {
-    .search-box .setting-group{
+    .search-box .setting-group {
         flex: 0.15;
     }
     .sp-top-wrap {
@@ -230,7 +270,7 @@
     .input-search.active .result-search {
         bottom: -100%;
         top: 53%;
-        height: 90vh;
+        height: 93vh;
         padding-bottom: 50px;
         overflow: hidden scroll;
     }
@@ -247,6 +287,11 @@
     .input-search.active > .fa-arrow-left {
         transform: translateX(-12px);
         display: block;
+    }
+}
+@media (max-width: 320px) {
+    .input-search.active input {
+        width: 68%;
     }
 }
 @media (max-width: 302px) {
