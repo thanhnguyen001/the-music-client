@@ -214,12 +214,19 @@
         max-width: 60px;
         max-height: 60px;
     }
+    .search-page .zm-carousel-item.video .zm-card .card-img {
+        max-width: 100px;
+    }
     .search-page .card-title .title,
     .search-page .card-description {
         -webkit-line-clamp: 1;
     }
     .search-page .card-info {
         margin-left: 12px;
+    }
+    .search-page .card-duration {
+        bottom: 0px;
+        right: 1px;
     }
     .search-page .zm-carousel-item.artist .artist-btn {
         display: none;
