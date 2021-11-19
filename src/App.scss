@@ -34,11 +34,26 @@
     display: block !important;
 }
 
+@media (min-width: 1921px) {
+    .App {
+        background-size: cover;
+        max-width: 2100px;
+        margin: 0 auto;
+    }
+}
+@media (min-height: 1080px) {
+    .App {
+        background-size: cover;
+    }
+}
 @media (max-width: 600px) {
     .vertical-track {
         display: none;
     }
     .vertical-thumb {
         display: none;
+    }
+    .hr {
+        margin: 12px auto 0 auto;
     }
 }

@@ -1,0 +1,33 @@
+.loading {
+    width: 100%;
+    height: 50px;
+    position: relative;
+}
+.loading-wrap {
+    text-align: center;
+    height: 100%;
+    font-size: 3rem;
+    /* color: var(--text-color); */
+   
+}
+.loading-wrap i {
+    background: -webkit-linear-gradient(
+        0deg,
+        rgba(161, 25, 25, 1) 25%,
+        rgb(0, 255, 21) 50%,
+        rgb(212, 0, 255) 75%,
+        rgb(238, 255, 0) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rotateLoading 1s linear infinite;
+}
+
+@keyframes rotateLoading {
+    from {
+        transform: rotateZ(0deg);
+    }
+    to {
+        transform: rotateZ(360deg);
+    }
+}

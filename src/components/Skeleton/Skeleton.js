@@ -42,8 +42,8 @@ function Skeleton({ type }) {
                 </div>
             </div>}
 
-            {type === "songs" && <div className="sk-songs">
-                <div className="sk-songs-thumbnail skeleton-wrap"><Shimmer /></div>
+            {(type === "songs" || type === "newSong") && <div className="sk-songs">
+                {type !== "newSong" && <div className="sk-songs-thumbnail skeleton-wrap"><Shimmer /></div>}
                 <div className="sk-songs-item">
                     {showListSong(15)}
                 </div>

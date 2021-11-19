@@ -8,6 +8,7 @@
     position: relative;
     margin-right: -6px;
     position: relative;
+    
 }
 /* .content ::-webkit-scrollbar {
     width: 6px;
@@ -65,6 +66,7 @@
     top: 0;
     z-index: 100;
     width: calc(100% - 240px);
+    max-width: calc(2100px - 240px);
 }
 
 .search-box {

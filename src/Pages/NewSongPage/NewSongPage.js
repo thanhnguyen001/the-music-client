@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import axiosService from '../../api/axiosClient'
+import Skeleton from '../../components/Skeleton/Skeleton';
 import Playlist from '../PlaylistPage/Playlist'
 import './NewSongPage.css';
 
@@ -39,6 +40,7 @@ function NewSongPage({ match }) {
             <div className="newrelease-wrap">
                 <div className="newrelease-title">Mới Phát Hành</div>
                 {list.length > 0 && <Playlist list={list} />}
+                {list.length <= 0 && <Skeleton type="newSong" />}
             </div>
         </div>
     )

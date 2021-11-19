@@ -1,14 +1,10 @@
 import React, { useEffect, useState, lazy, Suspense, useRef } from 'react';
 import { useDispatch } from 'react-redux';
-// import { Link } from 'react-router-dom';
 import axiosClient from '../../api/axiosClient';
-// import PropTypes from 'prop-types';
 import './TypePage..css';
+import Skeleton from '../../components/Skeleton/Skeleton';
+
 const Carousel = lazy(() => import('../../components/Carousel/Carousel'));
-
-// Types.propTypes = {
-
-// };
 
 function Types({ match }) {
 
@@ -115,6 +111,7 @@ function Types({ match }) {
 
     return (
         <div className="type">
+            {!isLoaded && <Skeleton type="home"/>}
             <div className="section-banner">
                 <div className="banner-wrap">
                     {isLoaded && types.banners.length > 0 && renderBanner(types.banners)}

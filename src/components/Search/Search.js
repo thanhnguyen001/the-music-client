@@ -9,6 +9,7 @@ import no_user from '../../static/img/no-user.png';
 import "./Search.css";
 import useClickOutSide2 from '../../hooks/useClickOutside2';
 import { addPlaylist, addSong } from '../../actions/actions';
+import Loading from '../Loading/Loading';
 
 function Search() {
 
@@ -170,12 +171,38 @@ function Search() {
         const result = [];
         list.forEach((item, index) => {
             if (item.type === 4 || item.type === 1) result.push(
-            <div className={`suggest-item ${currentSong?.song.song.encodeId === item.id ? "play" :""}`} key={index} onClick={() => handleChangePageOrPlay(item)}>
-                {item.type === 4 && <Link to={`/nghe-si/${item.aliasName}`}>
-                    <div className="song-item-left">
+                <div className={`suggest-item ${currentSong?.song.song.encodeId === item.id ? "play" : ""}`} key={index} onClick={() => handleChangePageOrPlay(item)}>
+                    {item.type === 4 && <Link to={`/nghe-si/${item.aliasName}`}>
+                        <div className="song-item-left">
+                            <div className="song-item-left-wrap">
+                                <div className="song-item-img" >
+                                    <div className={`song-item-thumb ${item.type === 4 ? "is-artist" : ""}`}>
+                                        <img src={item.thumb || item.avatar || item.thumbVideo} alt="" />
+                                    </div>
+                                </div>
+
+                                <div className="song-item-info">
+                                    <div className="song-item-info-wrap">
+                                        <div className="song-item-name">
+                                            <span className="suggest-text">{item.name || item.title}</span>
+                                        </div>
+                                        <div className={`song-item-singer`}><span>{showSinger(item)}</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </Link>}
+                    {item.type === 1 && <div className="song-item-left">
                         <div className="song-item-left-wrap">
-                            <div className="song-item-img" >
+                            <div className={`song-item-img ${currentSong?.song.song.encodeId === item.id ? "playing" : ""}`} >
+                                <div className="song-item-img-overlay">
+                                    {((currentSong?.song.song.encodeId !== item.id) || isPlay === "pause") && <i className="fas fa-play"></i>}
+                                    {isPlay === "play" && <div className="action-play">
+                                        <div></div> <div></div> <div></div> <div></div>
+                                    </div>}
+                                </div>
                                 <div className={`song-item-thumb ${item.type === 4 ? "is-artist" : ""}`}>
+                                    {/* <i className="fas fa-play"></i> */}
                                     <img src={item.thumb || item.avatar || item.thumbVideo} alt="" />
                                 </div>
                             </div>
@@ -189,34 +216,8 @@ function Search() {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </Link>}
-                {item.type === 1 && <div className="song-item-left">
-                    <div className="song-item-left-wrap">
-                        <div className={`song-item-img ${currentSong?.song.song.encodeId === item.id ? "playing" :""}`} >
-                            <div className="song-item-img-overlay">
-                                {((currentSong?.song.song.encodeId !== item.id) || isPlay === "pause") && <i className="fas fa-play"></i>}
-                                {isPlay === "play" && <div className="action-play">
-                                    <div></div> <div></div> <div></div> <div></div>
-                                </div>}
-                            </div>
-                            <div className={`song-item-thumb ${item.type === 4 ? "is-artist" : ""}`}>
-                                {/* <i className="fas fa-play"></i> */}
-                                <img src={item.thumb || item.avatar || item.thumbVideo} alt="" />
-                            </div>
-                        </div>
-
-                        <div className="song-item-info">
-                            <div className="song-item-info-wrap">
-                                <div className="song-item-name">
-                                    <span className="suggest-text">{item.name || item.title}</span>
-                                </div>
-                                <div className={`song-item-singer`}><span>{showSinger(item)}</span></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>}
-            </div>)
+                    </div>}
+                </div>)
         })
         return result;
     }
@@ -291,6 +292,7 @@ function Search() {
                             <div className="result-suggest-link">
                                 {suggest && suggest.length > 1 && suggest[1].suggestions && renderSuggestLink(suggest[1].suggestions)}
                             </div>
+                           {(!suggest || suggest.length <=0) && keyword && <Loading />}
                         </div>
 
                     </div>

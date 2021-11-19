@@ -1,6 +1,7 @@
 .skeleton {
     width: 100%;
     height: 100%;
+    margin-top: 22px;
 }
 .skeleton-wrap {
     background-color: var(--primary-bg);
@@ -117,7 +118,7 @@
     bottom: 0;
     width: 80%;
     transform: skewX(-30deg);
-    background-color: rgba(255, 225, 225, 0.1);
+    background-color: var(--alpha-bg);
     left: -100%;
     animation: shimmer 1s ease-in-out infinite;
 }
