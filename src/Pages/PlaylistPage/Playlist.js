@@ -619,10 +619,19 @@ function Playlist(props) {
     const directSwipe = useRef("right");
     const prevDirect = useRef("right");
     const space = useRef(0);
+    const timeTouche = useRef();
+    const timeExceed = useRef();
+    const durationTouche = useRef(false);
 
     const handleTouchStart = (e) => {
         startPoint.current = e.touches[0].pageX;
         prevPoint.current = e.touches[0].pageX;
+        timeTouche.current = setTimeout(() => {
+            durationTouche.current = true;
+            timeExceed.current = setTimeout(() => {
+                durationTouche.current = false;
+            }, 500)
+        }, 500)
     }
     const handleTouchMove = (e) => {
         if (!previewAlbum.current) return;
@@ -654,6 +663,12 @@ function Playlist(props) {
 
     const handleTouchEnd = () => {
         if (directSwipe.current === "left") {
+            if (durationTouche.current) {
+                handleChangeInfoInMobile(true);
+                if (timeTouche.current) clearTimeout(timeTouche.current);
+                if (timeExceed.current) clearTimeout(timeExceed.current);
+                return;
+            }
             if (movedX.current > previewAlbum.current.clientWidth * 0.4 / 2) {
                 handleChangeInfoInMobile(true);
             }
@@ -662,6 +677,12 @@ function Playlist(props) {
             }
         }
         else {
+            if (durationTouche.current) {
+                handleChangeInfoInMobile(false);
+                if (timeTouche.current) clearTimeout(timeTouche.current);
+                if (timeExceed.current) clearTimeout(timeExceed.current);
+                return;
+            }
             if (previewAlbum.current.clientWidth / 2 - movedX.current > previewAlbum.current.clientWidth * 0.4 / 2) {
                 handleChangeInfoInMobile(false);
             }
@@ -670,7 +691,7 @@ function Playlist(props) {
                 handleChangeInfoInMobile(true);
             }
         }
-
+        durationTouche.current = false;
         directSwipe.current = "right";
         prevDirect.current = "right"
     }
