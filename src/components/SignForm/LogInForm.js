@@ -5,7 +5,10 @@ import axiosClient from '../../api/axiosClient';
 
 
 function LogInForm() {
-    const { handleSubmit, formState: { errors }, register } = useForm({ mode: "all" });
+    const { handleSubmit, formState: { errors }, register } = useForm({ mode: "all", defaultValues: {
+        loginName: "megazord01",
+        password: "123456"
+    } });
     const dispatch = useDispatch();
 
     const onSubmit = async (data) => {
